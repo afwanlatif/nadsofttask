@@ -4,7 +4,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const { connectDB } = require('./config/db.config.js');
 const setupRoutes = require('./router/base.router.js');
-const port = 3000;
+const envConfig = require('./config/env.config.js');
+const port = envConfig.port || 3001;
 
 app.use(express.json());
 app.use(cors());

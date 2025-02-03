@@ -104,12 +104,12 @@ const getAllStudents = async (req, res) => {
             hasNextPage: page < totalPages,
             hasPreviousPage: page > 1
         };
-        await Student.findAll({
-            where: {
-                recordstatus: Record_Status.Active // Only get active students
-            }
-        });
-        return res.status(200).json({ message: 'All Students Fetched', metadata });
+        // await Student.findAll({
+        //     where: {
+        //         recordstatus: Record_Status.Active // Only get active students
+        //     }
+        // });
+        return res.status(200).json({ message: 'All Students Fetched', metadata, students });
     } catch (error) {
         return res.status(500).json({ message: 'Internal server error' });
     };

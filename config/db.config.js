@@ -1,8 +1,9 @@
 const { Sequelize } = require('sequelize');
+const envConfig = require('./env.config');
 // Sequelize ORM
-const sequelize = new Sequelize('studentDB', 'postgres', 'root', {
-    host: 'localhost',
-    dialect: 'postgres'
+const sequelize = new Sequelize(envConfig.db_name, envConfig.db_user, envConfig.db_password, {
+    host: envConfig.db_host,
+    dialect: envConfig.db_dialect
 });
 
 const connectDB = async () => {
